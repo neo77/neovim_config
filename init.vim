@@ -130,11 +130,16 @@ let g:deoplete#enable_at_startup = 1
 "let g:deoplete#enable_refresh_always=1
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
+"let g:deoplete#omni#functions = {}
+"let g:deoplete#omni#functions.javascript = ['jspc#omni','tern#Complete' ]
+
 let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer', 'member', 'omni', 'tag', 'file', 'dictionary']
+let g:deoplete#sources.perl = ['buffer', 'member', 'tag', 'file', 'dictionary', 'omni']
+"let g:deoplete#sources.javascript = ['buffer', 'member', 'tag', 'file', 'dictionary']
 let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.javascript = ['.']
+"let g:deoplete#omni#input_patterns.javascript = ['.']
 let g:deoplete#omni#input_patterns.perl = ['::', '->']
+
 "------
 map <Leader>r <ESC>:TernRename<CR> 
 map <Leader>d <ESC>:TernDef<CR> 
