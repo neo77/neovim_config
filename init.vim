@@ -135,9 +135,9 @@ let g:tern_show_signature_in_pum = 0  " This do disable full signature type on a
 
 let g:deoplete#sources = {}
 let g:deoplete#sources.perl = ['buffer', 'member', 'tag', 'file', 'dictionary', 'omni']
-"let g:deoplete#sources.javascript = ['buffer', 'member', 'tag', 'file', 'dictionary']
+let g:deoplete#sources.javascript = ['buffer', 'ternjs', 'member', 'tag', 'file', 'dictionary', 'omni']
 let g:deoplete#omni#input_patterns = {}
-"let g:deoplete#omni#input_patterns.javascript = ['.']
+let g:deoplete#omni#input_patterns.javascript = ['.']
 let g:deoplete#omni#input_patterns.perl = ['::', '->']
 
 "------
