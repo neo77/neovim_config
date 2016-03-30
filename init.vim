@@ -110,6 +110,7 @@ set tabstop=2
 set expandtab
 set shiftround
 set softtabstop=2
+set nowrap
 
 " Tab navigation 
 nnoremap <C-S-tab> :tabprevious<CR>
@@ -118,6 +119,11 @@ nnoremap <C-=>     :tabnew<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 
+" Tab replace 
+vnoremap <Tab>  :'<,'>><CR>gv
+vnoremap <Backspace>  :'<,'><<CR>gv
+nnoremap <Tab>  >>
+nnoremap <Backspace>  <<
 
 " normal mode only
 
