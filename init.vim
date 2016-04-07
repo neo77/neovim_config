@@ -79,6 +79,8 @@ Plug 'https://github.com/othree/jspc.vim.git'
 Plug 'https://github.com/carlitux/deoplete-ternjs.git'
 Plug 'https://github.com/c9s/perlomni.vim.git'
 
+"eyapp syntax
+Plug 'https://github.com/vim-scripts/eyapp.git'
 
 "context_filetype.vim:
 "It adds the context filetype feature.
@@ -105,12 +107,13 @@ call plug#end()
 "------ GENERAL
 lang mes C
 
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set expandtab
 set shiftround
-set softtabstop=2
+set softtabstop=4
 set nowrap
+au FileType javascript setl sw=2 sts=2 ts=2 et
 
 " Tab navigation 
 nnoremap <C-S-tab> :tabprevious<CR>
@@ -151,8 +154,8 @@ map <Leader>r <ESC>:TernRename<CR>
 map <Leader>d <ESC>:TernDef<CR> 
 
 "------ Solarized
-set background=dark
-colorscheme solarized
+set background=light
+"colorscheme solarized
 let g:solarized_termcolors=256
 
 "------ ASYNC-GREP
@@ -412,8 +415,10 @@ function! OpenBrother()
 endfunction
 
 " ---- smart F5
-autocmd BufNewFile,BufRead *.p? nmap <F5> <Leader>rr
-autocmd BufNewFile,BufRead *.t nmap <F5> <Leader>rr
+"autocmd BufNewFile,BufRead *.p? nmap <F5> <Leader>rr
+"autocmd BufNewFile,BufRead *.t nmap <F5> <Leader>rr
+autocmd BufNewFile,BufRead *.p? nmap <F5> :!/usr/bin/env perl '%'<CR>     
+autocmd BufNewFile,BufRead *.t nmap <F5>  :!/usr/bin/env perl '%'<CR> 
 autocmd BufNewFile,BufRead *.p? nmap <F6> <Leader>rs
 autocmd BufNewFile,BufRead *.t nmap <F6> <Leader>rs
 autocmd BufNewFile,BufRead *.js nmap <F5> :w<CR>:!node %<CR>
