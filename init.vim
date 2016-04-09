@@ -84,7 +84,7 @@ Plug 'https://github.com/vim-scripts/eyapp.git'
 
 "context_filetype.vim:
 "It adds the context filetype feature.
-"Plug 'https://github.com/Shougo/context_filetype.vim'
+"Plug 'https://github.com/Shougo/conitext_filetype.vim'
 
 "neopairs.vim:
 "It inserts the parentheses pairs automatically.
@@ -150,9 +150,18 @@ let g:deoplete#omni#input_patterns.javascript = ['.']
 let g:deoplete#omni#input_patterns.perl = ['::', '->']
 
 "------
-map <Leader>r <ESC>:TernRename<CR> 
-map <Leader>d <ESC>:TernDef<CR> 
 
+if &filetype == "javascript"
+    map <Leader>r <ESC>:TernRename<CR> 
+    map <Leader>d <ESC>:TernDef<CR> 
+el
+    function! AnyRename()
+        call inputsave()
+        let @z=input("What do you want to rename '" . @z . "' to? ")
+        call inputrestore()
+    endfunction
+    nmap <Leader>r "zyiw:call AnyRename()<cr>mx:silent! norm gd<cr>[{V%:s/<C-R>//<c-r>z/g<cr>`x
+en
 "------ Solarized
 set background=light
 "colorscheme solarized
@@ -419,8 +428,8 @@ endfunction
 "autocmd BufNewFile,BufRead *.t nmap <F5> <Leader>rr
 autocmd BufNewFile,BufRead *.p? nmap <F5> :!/usr/bin/env perl '%'<CR>     
 autocmd BufNewFile,BufRead *.t nmap <F5>  :!/usr/bin/env perl '%'<CR> 
-autocmd BufNewFile,BufRead *.p? nmap <F6> <Leader>rs
-autocmd BufNewFile,BufRead *.t nmap <F6> <Leader>rs
+autocmd BufNewFile,BufRead *.p? nmap <F6> :!/usr/bin/env perl -cw '%'<CR>     
+autocmd BufNewFile,BufRead *.t nmap <F6>  :!/usr/bin/env perl -cw '%'<CR> 
 autocmd BufNewFile,BufRead *.js nmap <F5> :w<CR>:!node %<CR>
 autocmd BufNewFile,BufRead *.js nmap <F6> :w<CR>
 " --- smart F12
