@@ -84,7 +84,7 @@ Plug 'https://github.com/vim-scripts/eyapp.git'
 
 "context_filetype.vim:
 "It adds the context filetype feature.
-"Plug 'https://github.com/Shougo/conitext_filetype.vim'
+Plug 'https://github.com/Shougo/context_filetype.vim'
 
 "neopairs.vim:
 "It inserts the parentheses pairs automatically.
@@ -92,11 +92,11 @@ Plug 'https://github.com/vim-scripts/eyapp.git'
 
 "echodoc.vim:
 "It prints the documentation you have completed.
-"Plug 'https://github.com/Shougo/echodoc.vim'
+Plug 'https://github.com/Shougo/echodoc.vim'
 
 "neoinclude.vim:
 "You can completes the candidates from the included files and included path.
-"Plug 'https://github.com/Shougo/neoinclude.vim'
+Plug 'https://github.com/Shougo/neoinclude.vim'
 
 "FastFold:
 "Speed up the updating folds when you use auto completion plugins.
@@ -167,6 +167,12 @@ set background=light
 "colorscheme solarized
 let g:solarized_termcolors=256
 
+"------ NEO DOCS
+"set cmdheight=2
+let g:echodoc_enable_at_startup = 1
+
+"
+
 "------ ASYNC-GREP
 "
 " Grep in current directory.
@@ -234,6 +240,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_perl_checkers = ['perl']
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
 
 "------ JSHINT2
 
